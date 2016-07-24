@@ -1,12 +1,4 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-// app.js
-
-// define our application and pull in ngRoute and ngAnimate
 var animateApp = angular.module('animateApp', ['ngRoute', 'ngAnimate']);
 
 // ROUTING ===============================================
@@ -18,19 +10,19 @@ animateApp.config(function ($routeProvider) {
 
             // home page
             .when('/', {
-                templateUrl: 'page-home.html',
+                templateUrl: 'home.html',
                 controller: 'mainController'
             })
 
             // about page
             .when('/about', {
-                templateUrl: 'page-about.html',
+                templateUrl: 'about.html',
                 controller: 'aboutController'
             })
 
             // contact page
             .when('/contact', {
-                templateUrl: 'page-contact.html',
+                templateUrl: 'contact.html',
                 controller: 'contactController'
             });
 
