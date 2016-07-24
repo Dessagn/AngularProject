@@ -1,0 +1,53 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html ng-app="MyApp">
+  <head>
+    <!-- SCROLLS -->
+    <!-- load bootstrap and fontawesome via CDN -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="css/css.css">
+
+
+  </head>
+  <body class="page" ng-controller="MainController">
+
+    <!-- HEADER AND NAVBAR -->
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#/">Angular Routing Example</a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#/about"><i class="fa fa-shield"></i> About</a></li>
+            <li><a href="#/contact"><i class="fa fa-comment"></i> Contact</a></li>
+            <li><a href="#/slogan"><i class="fa fa-bullhorn"></i> Our Slogan</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>ngRoute usage in AngularJS</h1> 
+        <p><i>ngView</i> is a directive that complements the <i>$route</i> service by including the rendered template of the current route into the main layout (index.html) file. Every time the current route changes, the included view changes with it according to the configuration of the <i>$route</i> service.</p> 
+      </div>
+
+
+      <!-- MAIN CONTENT AND INJECTED VIEWS -->
+      <div id="main">
+        <!-- angular templating -->
+        <!-- this is where content will be injected -->
+        <ng-view></ng-view>
+      </div>
+    </div>
+
+    <!-- SPELLS -->
+    <!-- load angular and angular route via CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>
