@@ -1,0 +1,71 @@
+
+<div class="container" ng-controller="IndexController">
+  <div class="row row-content">
+    <div class="col-xs-12 col-sm-3 col-sm-push-9">
+      
+      <h3 align=center>Our Lipsmacking Culinary Creations</h3>
+    </div>
+    <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+      
+      <div class="media-left media-middle">
+        <a ui-sref="app.dishdetails({id: feature._id})">
+            <img class="media-object img-thumbnail" ng-src='{{feature.image}}'>
+        </a>
+        </div>
+        <div class="media-body">
+          <h2 class="media-heading"><a ui-sref="app.dishdetails({id: feature._id})">{{feature.name}}</a>
+            <span class="label label-danger">{{feature.label}}</span>
+            <span class="badge">{{feature.price| currency: '$'}}</span></h2>
+          <p>{{feature.description}}</p>
+
+        </div>
+    </div>
+  </div>
+
+
+  <div class="row row-content">
+    <div class="col-xs-12 col-sm-2">
+      
+      <h3 align=center>This Month's Promotions</h3>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <ul>
+        <li ng-repeat="promo in promo">
+          
+        <div class="media-body">
+          <h2 class="media-heading"><a ui-sref="app.dishdetails({id: promo._id})">{{promo.name}}</a>
+            <span class="label label-danger">{{promo.label}}</span>
+            <span class="badge">{{promo.price| currency: '$'}}</span></h2>
+          <p>{{promo.description}}</p>
+
+        </div>
+          <div class="media-right media-middle">
+        <a ui-sref="app.dishdetails({id: promo._id})">
+            <img class="media-object img-thumbnail" ng-src='{{promo.image}}'>
+        </a>
+        </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12 col-sm-3 col-sm-push-9">
+      
+      <h3 align=center>Meet our Culinary Specialists</h3>
+    </div>
+    <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+       <div class="media-left media-middle">
+        
+          <img class="media-object img-thumbnail" ng-src={{leader.image}}>
+        
+        </div>
+        <div class="media-body">
+          <h3>{{leader.name}} <small>{{leader.designation}}</small></h3>
+          <h5>{{leader.description}}</h5>
+
+        </div>
+      
+    </div>
+  </div>
+</div>

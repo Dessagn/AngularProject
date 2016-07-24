@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row row-content" ng-controller="MenuController">
+    <div class="col-xs-12 col-sm-3 search">
+      <div class="form-group searchForm">
+        <label for="search">SEARCH</label>
+        <input id="search" class="form-control col-xs-12 col-sm-3" placeholder="Search..." ng-model = "query">
+
+      </div>
+      <hr>
+      <div class="form-group sortForm">
+        <label for="sort">SORT BY:</label> 
+        <select id="sort" class="form-control col-xs-12 col-sm-3" ng-model="sort">                            
+          <option value="price">Price Increase</option>
+          <option value="-price">Price Decrease</option>
+          <option value="-label">Special Label</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="col-xs-12  col-sm-9 menu">
+      <div class="tab-content menuList">
+
+        <button ng-click="toggleDetails()" class="btn btn-xs btn-primary pull-right"                    type="button">
+          {{showDetails ? 'Hide Details':'Show Details'}}
+        </button>
+        <ul style="margin-bottom: 20px;" class="nav nav-tabs" role="tablist">
+          <li role="presentation" ng-class = "{active:isSelected(1)}">
+            <a ng-click = "select(1)"
+               aria-controls="all menu"
+               role="tab">The Menu</a></li>
+          <li role="presentation" ng-class = "{active:isSelected(2)}">
+            <a ng-click = "select(2)"
+               aria-controls="appetizers"
+               role="tab">Appetizers</a></li>
+          <li role="presentation" ng-class = "{active:isSelected(3)}">
+            <a ng-click = "select(3)"
+               aria-controls="mains"
+               role="tab">Mains</a></li>
+          <li role="presentation" ng-class = "{active:isSelected(4)}">
+            <a ng-click = "select(4)"
+               aria-controls="desserts"
+               role="tab">Desserts</a></li>
+        </ul>
+
+        <ul class="media-list tab-pane fade in active">
+          <li class="media" ng-repeat="dish in dishes| filter:filtText | filter: query | orderBy: sort">
+            <div class="media-left media-middle">
+              <a ui-sref="app.dishdetails({id: dish._id})">
+                <img class="media-object img-thumbnail" ng-src={{dish.image}}>
+              </a>
+            </div>
+            <div class="media-body">
+
+              <h2 class="media-heading"><a ui-sref="app.dishdetails({id: dish._id})">{{dish.name}}</a>
+                <span class="label label-danger">{{dish.label}}</span>
+                <span class="badge">{{dish.price| currency: '€'}}</span></h2>
+              <p ng-show="showDetails">{{dish.description}}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+
+    </div>
+  </div>
+</div>
